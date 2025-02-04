@@ -5,4 +5,4 @@ Subliminal Tabs is a frankly stupid tool thought by Juan Sevilla and developed b
 Explanation:
 https://www.instagram.com/reel/DFqOK7mKZIR/?igsh=MXR3emFocXpzd2Judg==
 
-Use the tool at
+Use the tool at https://vicktl.github.io/SubliminalTabs/
