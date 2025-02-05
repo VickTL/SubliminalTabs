@@ -78,7 +78,6 @@ h2 {
     margin-bottom: 20px;
 }
 
-/* Input */
 #inputSubliminal {
     flex-grow: 1; /* Expands to fill available space */
     border-radius: 15px;
@@ -87,10 +86,18 @@ h2 {
     text-align: center;
     font-size: 20px;
     font-family: 'Courier New', Courier, monospace;
-    color: #707070;
+    color: black; /* Set inputted text color to black */
+    font-weight: bold; /* Make inputted text bold */
     filter: drop-shadow(0px 6px 2px #a4a4a4);
     width: 100%;
 }
+
+/* Keep the placeholder text with its original styling */
+#inputSubliminal::placeholder {
+    color: #707070; /* Keep gray color */
+    font-weight: normal; /* Ensure placeholder is not bold */
+}
+
 
 #remainingClicks {
     color: red;
@@ -128,6 +135,11 @@ p {
     font-size: 2vw;
     color: #757575;
     max-width: 90%;
+}
+
+#tip {
+    transition: opacity 0.5s ease-in-out; /* Smooth fade */
+    color: black;
 }
 
 /* Footer */
@@ -222,7 +234,7 @@ footer {
 }
 
 /* Large screens (Desktop) */
-@media (min-width: 1400px) { /* Large screens */
+@media (min-width: 1200px) { /* Large screens */
     #main {
         padding: 40px 15%; /* Adjusted padding */
         width: 100%; /* Ensure the main container stretches fully */
