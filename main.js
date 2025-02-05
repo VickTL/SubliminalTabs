@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     currentTipIndex++; // Move to the next tip after the first display
 
-    setInterval(cycleTips, 3000); // Change every 3 seconds
+    setInterval(cycleTips, 5000); // Change every 5 seconds
 
     // Set random placeholder
     function setRandomPlaceholder() {
