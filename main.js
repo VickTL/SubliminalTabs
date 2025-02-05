@@ -5,12 +5,38 @@ document.addEventListener('DOMContentLoaded', function() {
     let remainingClicks = 0;
     let words = [];
     let currentClick = 0;
-  
+
+    let h1 = document.getElementById("animatedText");
+    let text = h1.innerText;
+    h1.innerHTML = ""; // Clear existing text
+
+    text.split("").forEach((char, index) => {
+        let span = document.createElement("span");
+        
+        if (char === " ") {
+            span.innerHTML = "&nbsp;"; // Preserve spaces
+        } else {
+            span.innerText = char;
+            span.style.animationDelay = `${index * 0.1}s`; // Apply delay only to letters
+        }
+
+        h1.appendChild(span);
+    });
+
+    
     // Customizable array of funny placeholder texts
     const placeholderTexts = [
       "Please give me a raise",
       "I'm secretly in love with you",
-      "This meeting is so boring"
+      "This meeting is so boring",
+      "This work is great, buy it",
+      "Pay me a bigger fee, I deserve it",
+      "She deserves a raise",
+      "He's ready for a promotion",
+      "Dan Hill, you have a Booger in your nose",
+      "I'm not looking at porn",
+      "Maria I love you",
+      "If you're looking at my tabs, you clearly love me"
     ];
   
     // Set random placeholder
