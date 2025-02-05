@@ -50,6 +50,23 @@ document.addEventListener('DOMContentLoaded', function() {
 
     setInterval(cycleTips, 5000); // Change every 5 seconds
 
+    let h1 = document.getElementById("animatedText");
+    let text = h1.innerText;
+    h1.innerHTML = ""; // Clear existing text
+
+    text.split("").forEach((char, index) => {
+        let span = document.createElement("span");
+        
+        if (char === " ") {
+            span.innerHTML = "&nbsp;"; // Preserve spaces
+        } else {
+            span.innerText = char;
+            span.style.animationDelay = `${index * 0.1}s`; // Apply delay only to letters
+        }
+
+        h1.appendChild(span);
+    });
+
     // Set random placeholder
     function setRandomPlaceholder() {
         const placeholderTexts = [
