@@ -7,12 +7,21 @@ document.addEventListener('DOMContentLoaded', function() {
     let words = [];
     let currentClick = 0;
 
+    // Detect if the user is on a mobile phone
+    const isMobile = /Mobi|Android/i.test(navigator.userAgent); // Checks if the user is on a mobile device
+
     // Tips array
     const tips = [
         "Tip 1: Ctrl/Cmd + Click on the button to open tabs in the background",
         "Tip 2: Use '//' on the text to split tabs there instead of on spaces",
         "Tip 3: Right-click a tab and 'Close others' to clean up"
     ];
+
+    // Add a 4th tip if it's a mobile phone
+    if (isMobile) {
+        tips.push("Tip 4: Why would you use this on a phone!?");
+    }
+
     let currentTipIndex = 0;
 
     // Function to cycle tips
@@ -21,6 +30,12 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(() => {
             tipElement.textContent = tips[currentTipIndex];
             tipElement.style.opacity = 1; // Fade in
+            // Apply bold style for the mobile tip
+            if (currentTipIndex === tips.length - 1 && isMobile) {
+                tipElement.style.fontWeight = "bold";
+            } else {
+                tipElement.style.fontWeight = "normal";
+            }
             currentTipIndex = (currentTipIndex + 1) % tips.length; // Move to next tip
         }, 500); // 0.5 second fade-out time
     }
@@ -28,9 +43,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // Start cycling immediately after page load and ensure Tip 1 appears instantly
     tipElement.textContent = tips[currentTipIndex];
     tipElement.style.opacity = 1; // Ensure it's visible immediately
+    if (isMobile && currentTipIndex === tips.length - 1) {
+        tipElement.style.fontWeight = "bold"; // Bold the 4th tip on mobile
+    }
     currentTipIndex++; // Move to the next tip after the first display
 
-    setInterval(cycleTips, 5000); // Change every 3 seconds
+    setInterval(cycleTips, 3000); // Change every 3 seconds
 
     // Set random placeholder
     function setRandomPlaceholder() {
